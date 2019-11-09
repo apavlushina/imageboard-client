@@ -25,3 +25,28 @@ export const getImages = () => (dispatch, getState) => {
       .catch(console.error);
   }
 };
+
+export const NEW_IMAGE = "NEW_IMAGE";
+
+function newImage(payload) {
+  return {
+    type: NEW_IMAGE,
+    payload
+  };
+}
+
+export const createImage = data => (dispatch, getState) => {
+  const state = getState();
+  const { user } = state;
+
+  request
+    .post(`${baseUrl}/image`)
+    .set("Authorization", `Bearer ${user}`)
+    .send(data)
+    .then(response => {
+      const action = newImage(response.body);
+
+      dispatch(action);
+    })
+    .catch(console.error);
+};
