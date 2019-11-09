@@ -3,7 +3,7 @@ import request from "superagent";
 export const ALL_IMAGES = "ALL_IMAGES";
 
 //const baseUrl = "http://localhost:4000";
-const baseUrl = "https://agile-lake-90951.herokuapp.com/";
+const baseUrl = "https://agile-lake-90951.herokuapp.com";
 
 function allImages(payload) {
   return {
